@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  novanet-node:
+    build:
+      context: .
+      dockerfile: Dockerfile.novanet  # Placeholder - extend with your NovaNet/Yggdrasil image
+    image: novanet-node:latest
+    container_name: novanet-paradise-node
+    restart: unless-stopped
+    ports:
+      - "12345:12345/udp"  # Mesh peering port - adjust to your NovaNet
+      - "12345:12345/tcp"
+    volumes:
+      - ./config/novanet:/etc/novanet
+      - ./data/novanet:/var/lib/novanet
+    environment:
+      - NODE_NAME=DigitalParadise-Hannover-01
+      - NEXUS_INTEGRATION=true
+      - MESH_NETWORK=paradise-swarm
+    networks:
+      - paradise-mesh
+    # For real hardware passthrough or privileged if needed for radios
+    # privileged: true
+
+  nexus-ai-swarm:
+    build:
+      context: .
+      dockerfile: Dockerfile.nexus
+    image: nexus-ai-swarm:latest
+    container_name: nexus-ai-orchestrator
+    restart: unless-stopped
+    depends_on:
+      - novanet-node
+    environment:
+      - MESH_ENDPOINT=novanet-node:12345
+      - SWARM_SIZE=4
+      - LLM_PROVIDER=local   # or xai, ollama
+      - PARADISE_MODE=demo
+    volumes:
+      - ./examples:/app/examples
+      - ./data/nexus:/app/data
+    networks:
+      - paradise-mesh
+    command: python /app/examples/swarm_agent_demo.py --mesh-mode
+
+  # Optional: Monitoring & visualization
+  monitoring:
+    image: grafana/grafana:latest
+    container_name: paradise-monitoring
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - paradise-mesh
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=paradise123
+
+networks:
+  paradise-mesh:
+    driver: bridge
+
+volumes:
+  grafana-data:
