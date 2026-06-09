@@ -1,0 +1,18 @@
+# Nexus AI Swarm Demo Container
+# For the Digital Paradise Swarm Foundation
+# Runs the self-contained swarm_agent_demo.py or future production agents
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copy demo and future agent code
+COPY examples/ /app/examples/
+COPY docs/ /app/docs/
+
+# Future dependencies (add as needed)
+# COPY requirements.txt .
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# Default: run the standalone swarm demo
+CMD ["python3", "examples/swarm_agent_demo.py"]

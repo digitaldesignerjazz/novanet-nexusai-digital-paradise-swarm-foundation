@@ -1,0 +1,26 @@
+# NovaNet Mesh Node Placeholder Container
+# Replace this with your actual NovaNet / Yggdrasil / QNET implementation
+# For now it provides a healthy service for docker-compose networking tests
+
+FROM alpine:3.19
+
+RUN apk add --no-cache bash curl
+
+WORKDIR /app
+
+# Placeholder healthcheck and simple loop
+# In production: replace with your compiled NovaNet binary or yggdrasil
+COPY <<EOF /app/start.sh
+#!/bin/sh
+echo "[NovaNet] Placeholder node started for Digital Paradise swarm."
+echo "[NovaNet] Replace this container with your real NovaNet/Yggdrasil implementation."
+echo "[NovaNet] Config would mount at /etc/novanet or /etc/yggdrasil.conf"
+while true; do
+  sleep 30
+echo "[NovaNet] Node healthy - mesh simulation active (connect your real implementation here)"
+done
+EOF
+
+RUN chmod +x /app/start.sh
+
+CMD ["/app/start.sh"]

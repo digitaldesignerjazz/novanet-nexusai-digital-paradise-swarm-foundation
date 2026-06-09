@@ -4,12 +4,12 @@ services:
   novanet-node:
     build:
       context: .
-      dockerfile: Dockerfile.novanet  # Placeholder - extend with your NovaNet/Yggdrasil image
+      dockerfile: Dockerfile.novanet
     image: novanet-node:latest
     container_name: novanet-paradise-node
     restart: unless-stopped
     ports:
-      - "12345:12345/udp"  # Mesh peering port - adjust to your NovaNet
+      - "12345:12345/udp"
       - "12345:12345/tcp"
     volumes:
       - ./config/novanet:/etc/novanet
@@ -20,8 +20,11 @@ services:
       - MESH_NETWORK=paradise-swarm
     networks:
       - paradise-mesh
-    # For real hardware passthrough or privileged if needed for radios
-    # privileged: true
+    healthcheck:
+      test: ["CMD", "echo", "healthy"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   nexus-ai-swarm:
     build:
@@ -31,35 +34,35 @@ services:
     container_name: nexus-ai-orchestrator
     restart: unless-stopped
     depends_on:
-      - novanet-node
+      novanet-node:
+        condition: service_started
     environment:
       - MESH_ENDPOINT=novanet-node:12345
       - SWARM_SIZE=4
-      - LLM_PROVIDER=local   # or xai, ollama
+      - LLM_PROVIDER=local
       - PARADISE_MODE=demo
     volumes:
       - ./examples:/app/examples
       - ./data/nexus:/app/data
     networks:
       - paradise-mesh
-    command: python /app/examples/swarm_agent_demo.py --mesh-mode
+    # Runs the demo by default; override for production agents
+    command: python3 examples/swarm_agent_demo.py
 
-  # Optional: Monitoring & visualization
-  monitoring:
-    image: grafana/grafana:latest
-    container_name: paradise-monitoring
-    ports:
-      - "3000:3000"
-    volumes:
-      - grafana-data:/var/lib/grafana
-    networks:
-      - paradise-mesh
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=paradise123
+  # Optional monitoring (uncomment if desired)
+  # monitoring:
+  #   image: grafana/grafana:latest
+  #   container_name: paradise-monitoring
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - grafana-data:/var/lib/grafana
+  #   networks:
+  #     - paradise-mesh
 
 networks:
   paradise-mesh:
     driver: bridge
 
-volumes:
-  grafana-data:
+# volumes:
+#   grafana-data:

@@ -108,25 +108,27 @@ git clone https://github.com/digitaldesignerjazz/novanet-nexusai-digital-paradis
 cd novanet-nexusai-digital-paradise-swarm-foundation
 ```
 
-### 2. Launch Demo Stack (simulates NovaNet + Nexus AI together)
+### 2. Run the Self-Contained Swarm Demo (Recommended first step — no Docker needed)
 ```bash
+python3 examples/swarm_agent_demo.py
+```
+
+You will see the Nexus AI agents (Builder, Guardian, Explorer, Oracle) coordinating over a simulated mesh to grow the Digital Paradise. Sample output includes mesh publications, state updates, and harmony checks.
+
+### 3. Launch the Full Dockerized Demo (NovaNet node + Nexus AI swarm)
+```bash
+cp .env.example .env   # optional
 docker compose up --build
 ```
 
-This brings up:
-- A simulated NovaNet mesh node
-- Nexus AI swarm demo agents
-- Basic monitoring
+This now works out of the box:
+- `novanet-node` runs a healthy placeholder (replace with your real NovaNet/Yggdrasil implementation later)
+- `nexus-ai-swarm` runs the full demo inside the container
+- They share the `paradise-mesh` network
 
-Access logs to see agents coordinating "paradise growth" tasks.
+Stop with Ctrl+C or `docker compose down`.
 
-### 3. Explore Examples
-```bash
-cd examples
-python swarm_agent_demo.py
-```
-
-See [INSTALLATION.md](INSTALLATION.md) for production-grade setup of real NovaNet nodes and full Nexus AI deployment.
+See [INSTALLATION.md](INSTALLATION.md) for production setup of real NovaNet nodes, multi-node testbeds, hardware integration (Soilnova etc.), firewall rules for Germany, and advanced Nexus AI configuration (local LLMs, xAI Oracles, persistence).
 
 ---
 
@@ -170,7 +172,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for interface contracts (message schemas,
 - Run the swarm demo to see coordinated building of paradise features (virtual gardens, narrative arcs, resource optimization).
 - Extend `swarm_agent_demo.py` with real mesh transport (replace in-memory queue with NovaNet pub/sub client).
 - Use Grok Launcher to bootstrap a full agent swarm instance with GUI monitoring.
-- Deploy physical node: Flash Soilnova firmware, connect to NovaNet, watch Nexus AI react to real sensor data by adjusting virtual twin or triggering actuators.
+- Deploy physical node: Flash Soilnova firmware, connect to NovaNet, watch Nexus AI react to real sensor data by adjusting virtual twin or real actuators.
 
 **Example agent interaction** (from demo):
 ```python
@@ -184,7 +186,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for interface contracts (message schemas,
 
 ## Roadmap
 
-**Phase 1 (Current)**: Foundation repo, demo stack, core docs, simulated swarm on mesh abstraction.
+**Phase 1 (Current)**: Foundation repo, demo stack, core docs, simulated swarm on mesh abstraction. Docker demo now fully runnable.
 **Phase 2**: Real NovaNet node software (Rust/Go core or Python bindings), production Nexus AI with persistent memory & self-modification, QNET light client integration.
 **Phase 3**: Hardware reference designs (Soilnova v2, mesh router boards), city-scale testbed in Hannover region, public node onboarding.
 **Phase 4**: Full self-improving loop (agents edit their own code via safe sandboxes), immersive multi-user Paradise experiences, DAO governance live on QCoin, integration with xAI/Grok for high-level Oracles.

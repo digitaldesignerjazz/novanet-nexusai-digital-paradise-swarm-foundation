@@ -1,0 +1,22 @@
+# Requirements for Nexus AI Swarm components (Digital Paradise Swarm Foundation)
+# Currently the demo (swarm_agent_demo.py) uses only Python standard library.
+# Add production dependencies here as you extend the agents:
+
+# For real LLM / local inference:
+# ollama
+# openai
+# or xai-sdk if available
+
+# For advanced swarm orchestration:
+# crewai
+# langgraph
+# autogen
+
+# Mesh transport (when integrating real NovaNet):
+# pyyggdrasil  # or your custom client
+
+# Monitoring / persistence:
+# prometheus-client
+# sqlalchemy
+
+# Keep this file minimal until you add real dependencies.
