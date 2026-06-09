@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaNet + Nexus AI · Digital Paradise Swarm Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --primary: #22c55e;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+        }
+
+        .mesh-bg {
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .section-header {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .glass {
+            background: rgba(255,255,255, 0.08);
+            backdrop-filter: blur(16px);
+        }
+
+        .nav-link {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover {
+            color: #22c55e;
+            transform: translateY(-1px);
+        }
+
+        .component-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                       box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .component-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .metric {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .code-block {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        .paradise-gradient {
+            background: linear-gradient(135deg, #052e16, #166534);
+        }
+
+        .glow-green {
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+    <!-- Navbar -->
+    <nav class="border-b border-white/10 bg-zinc-950/80 backdrop-blur-lg fixed w-full z-50">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 rounded-2xl bg-emerald-500 flex items-center justify-center">
+                        <i class="fa-solid fa-network-wired text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-display text-2xl font-semibold tracking-tighter">NovaNet</span>
+                        <span class="text-emerald-400 font-display text-2xl font-semibold tracking-tighter">+ Nexus</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-x-8 text-sm">
+                    <a href="#vision" class="nav-link text-zinc-400 hover:text-white">Vision</a>
+                    <a href="#components" class="nav-link text-zinc-400 hover:text-white">Components</a>
+                    <a href="#quickstart" class="nav-link text-zinc-400 hover:text-white">Quick Start</a>
+                    <a href="#roadmap" class="nav-link text-zinc-400 hover:text-white">Roadmap</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <a href="https://github.com/digitaldesignerjazz/novanet-nexusai-digital-paradise-swarm-foundation" 
+                       target="_blank"
+                       class="flex items-center gap-x-2 px-4 py-2 text-sm font-medium rounded-3xl border border-white/20 hover:bg-white/5 transition-colors">
+                        <i class="fa-brands fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://github.com/digitaldesignerjazz/novanet-nexusai-digital-paradise-swarm-foundation/archive/refs/heads/main.zip" 
+                       class="px-5 py-2.5 text-sm font-semibold bg-white text-zinc-900 rounded-3xl hover:bg-zinc-100 transition-all active:scale-[0.985]">
+                        Clone Repo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="pt-20 pb-16 mesh-bg border-b border-white/10">
+        <div class="max-w-screen-xl mx-auto px-8 pt-12">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-white/5 border border-white/10 text-sm mb-6">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span class="font-medium">Foundation • Hannover → Global Mesh</span>
+                </div>
+
+                <h1 class="text-7xl leading-[1.05] font-display font-semibold tracking-tighter">
+                    A living digital<br>paradise, built<br>together.
+                </h1>
+                
+                <p class="mt-6 max-w-lg text-xl text-zinc-400">
+                    NovaNet mesh + Nexus AI swarms creating a self-organizing, 
+                    decentralized, and deeply human-centric digital ecosystem.
+                </p>
+
+                <div class="mt-10 flex flex-wrap items-center gap-4">
+                    <a href="#quickstart" 
+                       class="group inline-flex items-center justify-center gap-x-3 px-8 h-14 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 transition-all text-white font-semibold rounded-3xl text-base">
+                        <span>Get Started in 60 seconds</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-0.5 transition-transform"></i>
+                    </a>
+                    
+                    <a href="https://github.com/digitaldesignerjazz/novanet-nexusai-digital-paradise-swarm-foundation" 
+                       target="_blank"
+                       class="inline-flex items-center justify-center gap-x-3 px-7 h-14 border border-white/30 hover:bg-white/5 font-medium rounded-3xl transition-colors">
+                        <i class="fa-brands fa-github text-lg"></i>
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+
+                <div class="mt-8 flex items-center gap-x-8 text-sm text-zinc-500">
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-check text-emerald-400"></i>
+                        <span>MIT License</span>
+                    </div>
+                    <div>Self-improving • Privacy-first • Sovereign</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trust / Status -->
+    <div class="border-b border-white/10 bg-zinc-900/50">
+        <div class="max-w-screen-xl mx-auto px-8 py-5">
+            <div class="flex flex-wrap items-center justify-between gap-y-4 text-sm">
+                <div class="flex items-center gap-x-6">
+                    <div class="flex items-center gap-x-2 text-emerald-400">
+                        <i class="fa-solid fa-globe"></i>
+                        <span class="font-medium">Public Foundation Repository</span>
+                    </div>
+                </div>
+                <div class="text-zinc-400 text-sm">
+                    Part of Esslinger &amp; Co. · Prototyping self-improving networks since 2026
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vision -->
+    <div id="vision" class="max-w-screen-xl mx-auto px-8 py-20">
+        <div class="grid md:grid-cols-12 gap-x-12 items-center">
+            <div class="md:col-span-5">
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-emerald-400 mb-3">THE VISION</div>
+                <h2 class="section-header tracking-tighter">A paradise that<br>grows itself.</h2>
+            </div>
+            <div class="md:col-span-7 mt-8 md:mt-0">
+                <div class="prose prose-invert max-w-none text-lg text-zinc-300">
+                    <p>
+                        We are building a <strong>hybrid physical-digital ecosystem</strong> where resilient mesh networks 
+                        and intelligent agent swarms collaborate to create, maintain, and evolve a living Digital Paradise.
+                    </p>
+                    <p class="mt-4">
+                        Starting from Hannover, Germany, NovaNet provides the decentralized communication fabric. 
+                        Nexus AI forms the collective intelligence. Together they enable a sovereign, self-improving 
+                        space where humans and agents co-create — with privacy, beauty, and autonomy at the core.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Components -->
+    <div id="components" class="bg-zinc-900 border-y border-white/10 py-16">
+        <div class="max-w-screen-xl mx-auto px-8">
+            <div class="flex items-end justify-between mb-10">
+                <div>
+                    <div class="uppercase tracking-[3px] text-xs font-semibold text-emerald-400 mb-2">THE ARCHITECTURE</div>
+                    <h2 class="section-header tracking-tighter">Four layers. One living system.</h2>
+                </div>
+                <a href="ARCHITECTURE.md" class="hidden md:flex items-center text-emerald-400 hover:text-emerald-300 text-sm font-medium">
+                    Full architecture docs <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- NovaNet -->
+                <div class="component-card group bg-zinc-950 border border-white/10 rounded-3xl p-7">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-project-diagram text-emerald-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl tracking-tight mb-3">NovaNet Mesh</h3>
+                    <p class="text-zinc-400 text-[15px] leading-relaxed">
+                        Self-healing, privacy-preserving decentralized mesh. 
+                        Extends Yggdrasil + QNET concepts with native AI coordination and high-throughput data paths.
+                    </p>
+                    <div class="mt-6 flex items-center text-xs text-emerald-400">
+                        <span class="font-mono">YGGDRASIL · QNET · I2P/TOR</span>
+                    </div>
+                </div>
+
+                <!-- Nexus AI -->
+                <div class="component-card group bg-zinc-950 border border-white/10 rounded-3xl p-7">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-robot text-sky-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl tracking-tight mb-3">Nexus AI Swarm</h3>
+                    <p class="text-zinc-400 text-[15px] leading-relaxed">
+                        Distributed emotional AI agents with specialized roles: Builder, Guardian, Explorer, Oracle. 
+                        Self-improving, coherence-aware, and mesh-native.
+                    </p>
+                    <div class="mt-6 text-xs text-sky-400 font-medium">Emotional · Self-improving · Sovereign</div>
+                </div>
+
+                <!-- Blockchain -->
+                <div class="component-card group bg-zinc-950 border border-white/10 rounded-3xl p-7">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-link text-amber-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl tracking-tight mb-3">Swarm Foundation</h3>
+                    <p class="text-zinc-400 text-[15px] leading-relaxed">
+                        On-chain governance and economy using QNET / XCoin / QCoin. 
+                        Proposals, staking, resource allocation, and reputation systems for the Paradise.
+                    </p>
+                    <div class="mt-6 text-xs text-amber-400 font-medium">DAO-ready · Incentive aligned</div>
+                </div>
+
+                <!-- Hardware -->
+                <div class="component-card group bg-zinc-950 border border-white/10 rounded-3xl p-7">
+                    <div class="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-microchip text-violet-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl tracking-tight mb-3">Physical Interface</h3>
+                    <p class="text-zinc-400 text-[15px] leading-relaxed">
+                        Soilnova sensors, Vista Nova visualization, Grok Launcher dashboards, 
+                        and real-world actuators bridging digital decisions into physical paradise.
+                    </p>
+                    <div class="mt-6 text-xs text-violet-400 font-medium">Hybrid reality · Hannover testbed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Start -->
+    <div id="quickstart" class="max-w-screen-xl mx-auto px-8 py-20">
+        <div class="max-w-2xl">
+            <div class="uppercase tracking-[3px] text-xs font-semibold text-emerald-400 mb-3">GET STARTED</div>
+            <h2 class="section-header tracking-tighter mb-4">Run the foundation in under a minute.</h2>
+            <p class="text-xl text-zinc-400">Clone the repo and launch the integrated NovaNet + Nexus AI demo stack.</p>
+        </div>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-6">
+            <!-- Standalone Python -->
+            <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8">
+                <div class="flex items-center gap-x-3 mb-5">
+                    <i class="fa-brands fa-python text-yellow-400 text-2xl"></i>
+                    <div class="font-semibold">Standalone Demo (Recommended first)</div>
+                </div>
+                <div class="code-block bg-black/60 rounded-2xl p-5 text-sm font-mono text-emerald-300 overflow-x-auto">
+                    git clone https://github.com/digitaldesignerjazz/novanet-nexusai-digital-paradise-swarm-foundation.git<br>
+                    cd novanet-nexusai-digital-paradise-swarm-foundation<br><br>
+                    python3 examples/swarm_agent_demo.py
+                </div>
+                <button onclick="copyToClipboard(this, 'git clone https://github.com/digitaldesignerjazz/novanet-nexusai-digital-paradise-swarm-foundation.git &amp;&amp; cd novanet-nexusai-digital-paradise-swarm-foundation &amp;&amp; python3 examples/swarm_agent_demo.py')"
+                        class="mt-4 text-xs flex items-center gap-x-2 px-4 py-2 rounded-2xl border border-white/20 hover:bg-white/5 text-emerald-400">
+                    <i class="fa-regular fa-copy"></i> <span>Copy command</span>
+                </button>
+            </div>
+
+            <!-- Docker -->
+            <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8">
+                <div class="flex items-center gap-x-3 mb-5">
+                    <i class="fa-brands fa-docker text-sky-400 text-2xl"></i>
+                    <div class="font-semibold">Full Docker Stack (NovaNet + Nexus AI)</div>
+                </div>
+                <div class="code-block bg-black/60 rounded-2xl p-5 text-sm font-mono text-emerald-300 overflow-x-auto">
+                    cp .env.example .env<br>
+                    docker compose up --build
+                </div>
+                <p class="mt-4 text-xs text-zinc-500">Launches both the mesh node placeholder and the full Nexus AI swarm demo.</p>
+                
+                <button onclick="copyToClipboard(this, 'cp .env.example .env &amp;&amp; docker compose up --build')"
+                        class="mt-4 text-xs flex items-center gap-x-2 px-4 py-2 rounded-2xl border border-white/20 hover:bg-white/5 text-emerald-400">
+                    <i class="fa-regular fa-copy"></i> <span>Copy docker command</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center">
+            <a href="INSTALLATION.md" class="inline-flex items-center text-sm text-emerald-400 hover:text-emerald-300">
+                Full production installation guide (multi-node, hardware, Germany firewall rules) →
+            </a>
+        </div>
+    </div>
+
+    <!-- Stats / Impact -->
+    <div class="border-y border-white/10 bg-zinc-900 py-12">
+        <div class="max-w-screen-xl mx-auto px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 text-center">
+                <div>
+                    <div class="text-4xl font-semibold tracking-tighter">Self-healing</div>
+                    <div class="text-emerald-400 mt-1 text-sm font-medium">Mesh topology</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-semibold tracking-tighter">4 Roles</div>
+                    <div class="text-emerald-400 mt-1 text-sm font-medium">Nexus AI Agent Types</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-semibold tracking-tighter">Hybrid</div>
+                    <div class="text-emerald-400 mt-1 text-sm font-medium">Physical + Digital</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-semibold tracking-tighter">MIT</div>
+                    <div class="text-emerald-400 mt-1 text-sm font-medium">Open Foundation</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roadmap -->
+    <div id="roadmap" class="max-w-screen-xl mx-auto px-8 py-20">
+        <div class="max-w-2xl mb-10">
+            <div class="uppercase tracking-[3px] text-xs font-semibold text-emerald-400 mb-3">FUTURE</div>
+            <h2 class="section-header tracking-tighter">The path to a planetary mesh of paradises.</h2>
+        </div>
+
+        <div class="space-y-6 max-w-3xl">
+            <div class="flex gap-6">
+                <div class="w-8 h-8 flex-shrink-0 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-mono text-xs font-bold mt-1">01</div>
+                <div>
+                    <div class="font-semibold">Phase 1 — Foundation (Current)</div>
+                    <div class="text-sm text-zinc-400 mt-1">Landing page, demo stack, core documentation, simulated swarm on mesh abstraction.</div>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="w-8 h-8 flex-shrink-0 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-mono text-xs font-bold mt-1">02</div>
+                <div>
+                    <div class="font-semibold">Phase 2 — Real Infrastructure</div>
+                    <div class="text-sm text-zinc-400 mt-1">Production NovaNet node software, persistent Nexus AI with memory &amp; self-modification, QNET light client integration.</div>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="w-8 h-8 flex-shrink-0 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-mono text-xs font-bold mt-1">03</div>
+                <div>
+                    <div class="font-semibold">Phase 3 — Physical Expansion</div>
+                    <div class="text-sm text-zinc-400 mt-1">Hardware reference designs, city-scale testbed in the Hannover region, public node onboarding program.</div>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="w-8 h-8 flex-shrink-0 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-mono text-xs font-bold mt-1">04</div>
+                <div>
+                    <div class="font-semibold">Phase 4 — Autonomous Paradise</div>
+                    <div class="text-sm text-zinc-400 mt-1">Full self-improving loops, immersive multi-user experiences, live DAO governance on QCoin, deep xAI/Grok integration.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="border-t border-white/10 bg-zinc-900 py-16">
+        <div class="max-w-screen-xl mx-auto px-8 text-center">
+            <h2 class="text-4xl font-display tracking-tighter font-semibold">Ready to cultivate the Paradise?</h2>
+            <p class="mt-4 max-w-md mx-auto text-zinc-400">Join the foundation. Run the demo. Contribute to the mesh. Shape what comes next.</p>
+            
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://github.com/digitaldesignerjazz/novanet-nexusai-digital-paradise-swarm-foundation" 
+                   target="_blank"
+                   class="px-8 py-4 bg-white text-zinc-900 font-semibold rounded-3xl flex items-center justify-center gap-x-3 hover:bg-zinc-100 transition-colors w-full sm:w-auto">
+                    <i class="fa-brands fa-github"></i>
+                    <span>Star &amp; Fork on GitHub</span>
+                </a>
+                
+                <a href="#quickstart" 
+                   class="px-8 py-4 border border-white/30 hover:bg-white/5 font-medium rounded-3xl flex items-center justify-center gap-x-3 transition-colors w-full sm:w-auto">
+                    Run the demo locally
+                </a>
+            </div>
+
+            <div class="mt-12 text-xs text-zinc-500">
+                Built with care in Hannover, Germany · 2026<br>
+                Esslinger &amp; Co. · Digital Paradise Swarm Foundation
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(element, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = element.innerHTML;
+                element.innerHTML = `<i class="fa-solid fa-check"></i> <span>Copied!</span>`;
+                setTimeout(() => {
+                    element.innerHTML = originalText;
+                }, 1800);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                const originalText = element.innerHTML;
+                element.innerHTML = `<i class="fa-solid fa-check"></i> <span>Copied!</span>`;
+                setTimeout(() => {
+                    element.innerHTML = originalText;
+                }, 1800);
+            });
+        }
+
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#22c55e');
+        }
+        
+        window.onload = function() {
+            initializeTailwind();
+        }
+    </script>
+</body>
+</html>
